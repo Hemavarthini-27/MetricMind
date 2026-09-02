@@ -1,0 +1,501 @@
+customer_id,customer_name,country,region
+1,EnterpriseHub 1,Germany,Europe
+2,EuroSystems 2,Japan,Asia
+3,GlobalRetail 3,Spain,Europe
+4,TechCorp 4,Brazil,South America
+5,SmartStore 5,France,Europe
+6,SmartStore 6,Spain,Europe
+7,FutureTech 7,Brazil,South America
+8,EuroSystems 8,USA,North America
+9,EnterpriseHub 9,Argentina,South America
+10,DigitalWorld 10,Japan,Asia
+11,MegaMart 11,Germany,Europe
+12,DigitalWorld 12,UK,Europe
+13,FutureTech 13,USA,North America
+14,GlobalRetail 14,Italy,Europe
+15,DataSolutions 15,Canada,North America
+16,TechCorp 16,India,Asia
+17,GlobalRetail 17,Singapore,Asia
+18,MegaMart 18,India,Asia
+19,DigitalWorld 19,Canada,North America
+20,DigitalWorld 20,Singapore,Asia
+21,GlobalRetail 21,Singapore,Asia
+22,EuroSystems 22,Japan,Asia
+23,EnterpriseHub 23,Argentina,South America
+24,TechCorp 24,Singapore,Asia
+25,DigitalWorld 25,India,Asia
+26,GlobalRetail 26,Argentina,South America
+27,SmartStore 27,Singapore,Asia
+28,FutureTech 28,Argentina,South America
+29,EuroSystems 29,Singapore,Asia
+30,DataSolutions 30,Singapore,Asia
+31,DigitalWorld 31,Argentina,South America
+32,CloudWorks 32,Japan,Asia
+33,TechCorp 33,Brazil,South America
+34,EuroSystems 34,France,Europe
+35,MegaMart 35,Brazil,South America
+36,CloudWorks 36,Argentina,South America
+37,GlobalRetail 37,USA,North America
+38,GlobalRetail 38,Canada,North America
+39,EuroSystems 39,Canada,North America
+40,EnterpriseHub 40,Brazil,South America
+41,EnterpriseHub 41,India,Asia
+42,DigitalWorld 42,Japan,Asia
+43,DataSolutions 43,India,Asia
+44,TechCorp 44,Canada,North America
+45,EnterpriseHub 45,UK,Europe
+46,SmartStore 46,India,Asia
+47,FutureTech 47,Germany,Europe
+48,EuroSystems 48,Spain,Europe
+49,CloudWorks 49,South Korea,Asia
+50,CloudWorks 50,Singapore,Asia
+51,CloudWorks 51,Brazil,South America
+52,MegaMart 52,Singapore,Asia
+53,CloudWorks 53,Canada,North America
+54,SmartStore 54,Brazil,South America
+55,DigitalWorld 55,India,Asia
+56,CloudWorks 56,Spain,Europe
+57,TechCorp 57,Japan,Asia
+58,SmartStore 58,Germany,Europe
+59,DigitalWorld 59,Germany,Europe
+60,SmartStore 60,Spain,Europe
+61,SmartStore 61,Canada,North America
+62,SmartStore 62,South Korea,Asia
+63,SmartStore 63,Argentina,South America
+64,MegaMart 64,Germany,Europe
+65,MegaMart 65,Canada,North America
+66,GlobalRetail 66,Brazil,South America
+67,DigitalWorld 67,Italy,Europe
+68,SmartStore 68,France,Europe
+69,EuroSystems 69,South Korea,Asia
+70,EnterpriseHub 70,Brazil,South America
+71,GlobalRetail 71,Brazil,South America
+72,TechCorp 72,Brazil,South America
+73,SmartStore 73,Germany,Europe
+74,FutureTech 74,South Korea,Asia
+75,MegaMart 75,Brazil,South America
+76,MegaMart 76,France,Europe
+77,EnterpriseHub 77,Italy,Europe
+78,MegaMart 78,Argentina,South America
+79,SmartStore 79,Brazil,South America
+80,TechCorp 80,USA,North America
+81,TechCorp 81,UK,Europe
+82,FutureTech 82,Spain,Europe
+83,CloudWorks 83,India,Asia
+84,GlobalRetail 84,France,Europe
+85,MegaMart 85,France,Europe
+86,SmartStore 86,Spain,Europe
+87,GlobalRetail 87,Spain,Europe
+88,EnterpriseHub 88,Argentina,South America
+89,SmartStore 89,Singapore,Asia
+90,EuroSystems 90,Canada,North America
+91,DigitalWorld 91,Canada,North America
+92,FutureTech 92,Germany,Europe
+93,CloudWorks 93,Germany,Europe
+94,EuroSystems 94,Singapore,Asia
+95,SmartStore 95,USA,North America
+96,EuroSystems 96,Canada,North America
+97,DataSolutions 97,Argentina,South America
+98,EnterpriseHub 98,Spain,Europe
+99,EnterpriseHub 99,France,Europe
+100,CloudWorks 100,Germany,Europe
+101,EnterpriseHub 101,Singapore,Asia
+102,SmartStore 102,Singapore,Asia
+103,EnterpriseHub 103,Canada,North America
+104,MegaMart 104,Germany,Europe
+105,TechCorp 105,USA,North America
+106,EnterpriseHub 106,USA,North America
+107,CloudWorks 107,South Korea,Asia
+108,GlobalRetail 108,Brazil,South America
+109,CloudWorks 109,France,Europe
+110,DataSolutions 110,UK,Europe
+111,EuroSystems 111,South Korea,Asia
+112,DigitalWorld 112,UK,Europe
+113,SmartStore 113,UK,Europe
+114,DigitalWorld 114,India,Asia
+115,SmartStore 115,Brazil,South America
+116,MegaMart 116,Japan,Asia
+117,DigitalWorld 117,France,Europe
+118,EnterpriseHub 118,Brazil,South America
+119,MegaMart 119,India,Asia
+120,SmartStore 120,Italy,Europe
+121,DigitalWorld 121,South Korea,Asia
+122,SmartStore 122,USA,North America
+123,MegaMart 123,France,Europe
+124,GlobalRetail 124,Canada,North America
+125,CloudWorks 125,Canada,North America
+126,TechCorp 126,Argentina,South America
+127,EuroSystems 127,UK,Europe
+128,GlobalRetail 128,USA,North America
+129,DigitalWorld 129,Argentina,South America
+130,MegaMart 130,Brazil,South America
+131,TechCorp 131,Singapore,Asia
+132,CloudWorks 132,Brazil,South America
+133,MegaMart 133,Singapore,Asia
+134,DataSolutions 134,UK,Europe
+135,EnterpriseHub 135,USA,North America
+136,DigitalWorld 136,Canada,North America
+137,CloudWorks 137,Argentina,South America
+138,MegaMart 138,Japan,Asia
+139,DataSolutions 139,Brazil,South America
+140,CloudWorks 140,Canada,North America
+141,EnterpriseHub 141,UK,Europe
+142,DataSolutions 142,South Korea,Asia
+143,FutureTech 143,Canada,North America
+144,CloudWorks 144,Brazil,South America
+145,GlobalRetail 145,Brazil,South America
+146,GlobalRetail 146,Canada,North America
+147,SmartStore 147,Singapore,Asia
+148,TechCorp 148,Japan,Asia
+149,FutureTech 149,France,Europe
+150,MegaMart 150,Italy,Europe
+151,FutureTech 151,South Korea,Asia
+152,EuroSystems 152,Brazil,South America
+153,MegaMart 153,Germany,Europe
+154,CloudWorks 154,Japan,Asia
+155,CloudWorks 155,Brazil,South America
+156,FutureTech 156,India,Asia
+157,CloudWorks 157,South Korea,Asia
+158,DataSolutions 158,Canada,North America
+159,EuroSystems 159,Argentina,South America
+160,EnterpriseHub 160,Argentina,South America
+161,CloudWorks 161,Singapore,Asia
+162,EnterpriseHub 162,Brazil,South America
+163,EnterpriseHub 163,Brazil,South America
+164,DigitalWorld 164,Singapore,Asia
+165,EuroSystems 165,USA,North America
+166,MegaMart 166,Japan,Asia
+167,GlobalRetail 167,Japan,Asia
+168,DigitalWorld 168,Argentina,South America
+169,TechCorp 169,Argentina,South America
+170,MegaMart 170,South Korea,Asia
+171,MegaMart 171,Spain,Europe
+172,DigitalWorld 172,Brazil,South America
+173,MegaMart 173,Canada,North America
+174,SmartStore 174,South Korea,Asia
+175,FutureTech 175,Canada,North America
+176,DigitalWorld 176,Italy,Europe
+177,FutureTech 177,Brazil,South America
+178,MegaMart 178,India,Asia
+179,MegaMart 179,Germany,Europe
+180,EuroSystems 180,South Korea,Asia
+181,MegaMart 181,UK,Europe
+182,FutureTech 182,USA,North America
+183,MegaMart 183,Canada,North America
+184,EnterpriseHub 184,Canada,North America
+185,TechCorp 185,Italy,Europe
+186,SmartStore 186,UK,Europe
+187,TechCorp 187,Germany,Europe
+188,TechCorp 188,Japan,Asia
+189,EuroSystems 189,Japan,Asia
+190,DataSolutions 190,Brazil,South America
+191,EnterpriseHub 191,South Korea,Asia
+192,DataSolutions 192,USA,North America
+193,EnterpriseHub 193,France,Europe
+194,TechCorp 194,Spain,Europe
+195,MegaMart 195,Canada,North America
+196,DataSolutions 196,India,Asia
+197,EnterpriseHub 197,India,Asia
+198,TechCorp 198,Spain,Europe
+199,DigitalWorld 199,Canada,North America
+200,DigitalWorld 200,Spain,Europe
+201,FutureTech 201,Italy,Europe
+202,DigitalWorld 202,Italy,Europe
+203,MegaMart 203,Brazil,South America
+204,DataSolutions 204,Singapore,Asia
+205,MegaMart 205,Argentina,South America
+206,SmartStore 206,Canada,North America
+207,FutureTech 207,UK,Europe
+208,DataSolutions 208,South Korea,Asia
+209,TechCorp 209,Argentina,South America
+210,EuroSystems 210,Argentina,South America
+211,DigitalWorld 211,Brazil,South America
+212,EnterpriseHub 212,Canada,North America
+213,CloudWorks 213,USA,North America
+214,SmartStore 214,India,Asia
+215,CloudWorks 215,Argentina,South America
+216,FutureTech 216,South Korea,Asia
+217,GlobalRetail 217,Brazil,South America
+218,MegaMart 218,USA,North America
+219,DataSolutions 219,Singapore,Asia
+220,CloudWorks 220,Canada,North America
+221,CloudWorks 221,Canada,North America
+222,FutureTech 222,Canada,North America
+223,EnterpriseHub 223,Canada,North America
+224,SmartStore 224,India,Asia
+225,CloudWorks 225,USA,North America
+226,SmartStore 226,Japan,Asia
+227,DataSolutions 227,Argentina,South America
+228,SmartStore 228,USA,North America
+229,DigitalWorld 229,USA,North America
+230,TechCorp 230,Singapore,Asia
+231,TechCorp 231,Singapore,Asia
+232,EnterpriseHub 232,Spain,Europe
+233,GlobalRetail 233,South Korea,Asia
+234,EnterpriseHub 234,Spain,Europe
+235,FutureTech 235,Argentina,South America
+236,TechCorp 236,USA,North America
+237,GlobalRetail 237,Canada,North America
+238,FutureTech 238,Italy,Europe
+239,TechCorp 239,Spain,Europe
+240,DataSolutions 240,Japan,Asia
+241,SmartStore 241,USA,North America
+242,MegaMart 242,Spain,Europe
+243,FutureTech 243,South Korea,Asia
+244,DataSolutions 244,Argentina,South America
+245,DataSolutions 245,Argentina,South America
+246,GlobalRetail 246,Spain,Europe
+247,EnterpriseHub 247,Japan,Asia
+248,SmartStore 248,France,Europe
+249,EuroSystems 249,India,Asia
+250,FutureTech 250,Italy,Europe
+251,TechCorp 251,Argentina,South America
+252,EnterpriseHub 252,Singapore,Asia
+253,SmartStore 253,Brazil,South America
+254,MegaMart 254,USA,North America
+255,SmartStore 255,Spain,Europe
+256,EuroSystems 256,Singapore,Asia
+257,EuroSystems 257,Germany,Europe
+258,FutureTech 258,Canada,North America
+259,EnterpriseHub 259,Italy,Europe
+260,CloudWorks 260,Argentina,South America
+261,GlobalRetail 261,Argentina,South America
+262,DigitalWorld 262,Italy,Europe
+263,GlobalRetail 263,USA,North America
+264,EnterpriseHub 264,India,Asia
+265,FutureTech 265,France,Europe
+266,EuroSystems 266,Argentina,South America
+267,GlobalRetail 267,Argentina,South America
+268,MegaMart 268,Argentina,South America
+269,GlobalRetail 269,Canada,North America
+270,MegaMart 270,Singapore,Asia
+271,MegaMart 271,Argentina,South America
+272,GlobalRetail 272,Italy,Europe
+273,DigitalWorld 273,Canada,North America
+274,CloudWorks 274,Italy,Europe
+275,FutureTech 275,Spain,Europe
+276,SmartStore 276,Brazil,South America
+277,FutureTech 277,Canada,North America
+278,EnterpriseHub 278,France,Europe
+279,FutureTech 279,Singapore,Asia
+280,TechCorp 280,Brazil,South America
+281,EnterpriseHub 281,Japan,Asia
+282,MegaMart 282,Spain,Europe
+283,GlobalRetail 283,France,Europe
+284,EuroSystems 284,Brazil,South America
+285,CloudWorks 285,Argentina,South America
+286,FutureTech 286,Canada,North America
+287,FutureTech 287,Brazil,South America
+288,SmartStore 288,South Korea,Asia
+289,EnterpriseHub 289,India,Asia
+290,CloudWorks 290,Argentina,South America
+291,EnterpriseHub 291,USA,North America
+292,EuroSystems 292,Canada,North America
+293,DigitalWorld 293,Argentina,South America
+294,FutureTech 294,Canada,North America
+295,SmartStore 295,USA,North America
+296,MegaMart 296,Brazil,South America
+297,FutureTech 297,UK,Europe
+298,EuroSystems 298,Argentina,South America
+299,EuroSystems 299,Brazil,South America
+300,FutureTech 300,USA,North America
+301,FutureTech 301,Spain,Europe
+302,MegaMart 302,France,Europe
+303,FutureTech 303,India,Asia
+304,DataSolutions 304,Canada,North America
+305,DigitalWorld 305,Brazil,South America
+306,FutureTech 306,Argentina,South America
+307,GlobalRetail 307,Spain,Europe
+308,SmartStore 308,Singapore,Asia
+309,GlobalRetail 309,Italy,Europe
+310,EuroSystems 310,Italy,Europe
+311,TechCorp 311,USA,North America
+312,EnterpriseHub 312,USA,North America
+313,MegaMart 313,Canada,North America
+314,CloudWorks 314,Japan,Asia
+315,EuroSystems 315,Brazil,South America
+316,DataSolutions 316,India,Asia
+317,FutureTech 317,Brazil,South America
+318,FutureTech 318,Japan,Asia
+319,EnterpriseHub 319,Canada,North America
+320,EnterpriseHub 320,Italy,Europe
+321,FutureTech 321,India,Asia
+322,MegaMart 322,Canada,North America
+323,EnterpriseHub 323,Canada,North America
+324,FutureTech 324,South Korea,Asia
+325,MegaMart 325,France,Europe
+326,EnterpriseHub 326,Canada,North America
+327,EnterpriseHub 327,Italy,Europe
+328,TechCorp 328,Spain,Europe
+329,SmartStore 329,Argentina,South America
+330,SmartStore 330,USA,North America
+331,GlobalRetail 331,USA,North America
+332,FutureTech 332,UK,Europe
+333,DigitalWorld 333,Spain,Europe
+334,EnterpriseHub 334,India,Asia
+335,EuroSystems 335,Canada,North America
+336,CloudWorks 336,Japan,Asia
+337,EuroSystems 337,Canada,North America
+338,EnterpriseHub 338,Canada,North America
+339,FutureTech 339,USA,North America
+340,SmartStore 340,France,Europe
+341,GlobalRetail 341,Argentina,South America
+342,EnterpriseHub 342,Brazil,South America
+343,DigitalWorld 343,Italy,Europe
+344,DigitalWorld 344,Canada,North America
+345,FutureTech 345,France,Europe
+346,CloudWorks 346,Spain,Europe
+347,GlobalRetail 347,USA,North America
+348,MegaMart 348,Argentina,South America
+349,TechCorp 349,France,Europe
+350,FutureTech 350,UK,Europe
+351,SmartStore 351,Germany,Europe
+352,FutureTech 352,South Korea,Asia
+353,DataSolutions 353,Canada,North America
+354,GlobalRetail 354,South Korea,Asia
+355,EnterpriseHub 355,Argentina,South America
+356,SmartStore 356,UK,Europe
+357,SmartStore 357,Argentina,South America
+358,DigitalWorld 358,USA,North America
+359,MegaMart 359,USA,North America
+360,GlobalRetail 360,USA,North America
+361,SmartStore 361,Brazil,South America
+362,DigitalWorld 362,Germany,Europe
+363,DataSolutions 363,Japan,Asia
+364,CloudWorks 364,India,Asia
+365,SmartStore 365,Japan,Asia
+366,DataSolutions 366,USA,North America
+367,EuroSystems 367,UK,Europe
+368,EuroSystems 368,Singapore,Asia
+369,EuroSystems 369,Germany,Europe
+370,SmartStore 370,UK,Europe
+371,EuroSystems 371,USA,North America
+372,EuroSystems 372,USA,North America
+373,GlobalRetail 373,Brazil,South America
+374,DigitalWorld 374,Argentina,South America
+375,CloudWorks 375,Italy,Europe
+376,CloudWorks 376,India,Asia
+377,TechCorp 377,Canada,North America
+378,MegaMart 378,Italy,Europe
+379,FutureTech 379,Brazil,South America
+380,GlobalRetail 380,Brazil,South America
+381,GlobalRetail 381,USA,North America
+382,DataSolutions 382,Singapore,Asia
+383,DataSolutions 383,Canada,North America
+384,CloudWorks 384,Canada,North America
+385,GlobalRetail 385,Brazil,South America
+386,FutureTech 386,South Korea,Asia
+387,DigitalWorld 387,South Korea,Asia
+388,MegaMart 388,Argentina,South America
+389,MegaMart 389,UK,Europe
+390,DigitalWorld 390,Canada,North America
+391,GlobalRetail 391,South Korea,Asia
+392,GlobalRetail 392,Germany,Europe
+393,DigitalWorld 393,Brazil,South America
+394,DataSolutions 394,India,Asia
+395,MegaMart 395,USA,North America
+396,TechCorp 396,Canada,North America
+397,DigitalWorld 397,Canada,North America
+398,CloudWorks 398,Spain,Europe
+399,FutureTech 399,Japan,Asia
+400,DigitalWorld 400,India,Asia
+401,EnterpriseHub 401,USA,North America
+402,CloudWorks 402,South Korea,Asia
+403,EnterpriseHub 403,Spain,Europe
+404,EnterpriseHub 404,France,Europe
+405,DigitalWorld 405,Canada,North America
+406,EuroSystems 406,France,Europe
+407,EuroSystems 407,Brazil,South America
+408,CloudWorks 408,Germany,Europe
+409,MegaMart 409,South Korea,Asia
+410,EuroSystems 410,Argentina,South America
+411,DigitalWorld 411,Canada,North America
+412,EuroSystems 412,Germany,Europe
+413,GlobalRetail 413,India,Asia
+414,MegaMart 414,Canada,North America
+415,MegaMart 415,Argentina,South America
+416,CloudWorks 416,USA,North America
+417,MegaMart 417,UK,Europe
+418,DataSolutions 418,UK,Europe
+419,TechCorp 419,Argentina,South America
+420,DataSolutions 420,South Korea,Asia
+421,SmartStore 421,Germany,Europe
+422,EuroSystems 422,USA,North America
+423,DigitalWorld 423,Canada,North America
+424,FutureTech 424,Germany,Europe
+425,EuroSystems 425,Brazil,South America
+426,CloudWorks 426,Brazil,South America
+427,MegaMart 427,USA,North America
+428,TechCorp 428,Italy,Europe
+429,DigitalWorld 429,Brazil,South America
+430,MegaMart 430,Argentina,South America
+431,MegaMart 431,USA,North America
+432,EuroSystems 432,UK,Europe
+433,GlobalRetail 433,Argentina,South America
+434,SmartStore 434,Brazil,South America
+435,CloudWorks 435,Argentina,South America
+436,EnterpriseHub 436,Italy,Europe
+437,DigitalWorld 437,USA,North America
+438,CloudWorks 438,India,Asia
+439,CloudWorks 439,Spain,Europe
+440,DigitalWorld 440,Singapore,Asia
+441,GlobalRetail 441,Japan,Asia
+442,SmartStore 442,Singapore,Asia
+443,GlobalRetail 443,Japan,Asia
+444,FutureTech 444,South Korea,Asia
+445,DigitalWorld 445,Argentina,South America
+446,GlobalRetail 446,South Korea,Asia
+447,EnterpriseHub 447,Argentina,South America
+448,DigitalWorld 448,USA,North America
+449,FutureTech 449,UK,Europe
+450,TechCorp 450,Brazil,South America
+451,GlobalRetail 451,Canada,North America
+452,DataSolutions 452,Spain,Europe
+453,DataSolutions 453,Argentina,South America
+454,DataSolutions 454,Italy,Europe
+455,DataSolutions 455,Singapore,Asia
+456,TechCorp 456,Brazil,South America
+457,DigitalWorld 457,Brazil,South America
+458,EuroSystems 458,Spain,Europe
+459,FutureTech 459,France,Europe
+460,DigitalWorld 460,Brazil,South America
+461,MegaMart 461,Canada,North America
+462,DataSolutions 462,Argentina,South America
+463,GlobalRetail 463,UK,Europe
+464,CloudWorks 464,USA,North America
+465,EnterpriseHub 465,Argentina,South America
+466,GlobalRetail 466,Singapore,Asia
+467,EnterpriseHub 467,Singapore,Asia
+468,DataSolutions 468,Brazil,South America
+469,CloudWorks 469,UK,Europe
+470,EuroSystems 470,Argentina,South America
+471,CloudWorks 471,Italy,Europe
+472,DigitalWorld 472,USA,North America
+473,SmartStore 473,USA,North America
+474,SmartStore 474,Canada,North America
+475,EuroSystems 475,Japan,Asia
+476,GlobalRetail 476,UK,Europe
+477,DataSolutions 477,UK,Europe
+478,EuroSystems 478,South Korea,Asia
+479,DataSolutions 479,Japan,Asia
+480,TechCorp 480,South Korea,Asia
+481,SmartStore 481,Argentina,South America
+482,FutureTech 482,Argentina,South America
+483,EnterpriseHub 483,Japan,Asia
+484,DigitalWorld 484,Brazil,South America
+485,EnterpriseHub 485,Argentina,South America
+486,EuroSystems 486,Argentina,South America
+487,EnterpriseHub 487,Japan,Asia
+488,DigitalWorld 488,Italy,Europe
+489,GlobalRetail 489,Spain,Europe
+490,EuroSystems 490,USA,North America
+491,CloudWorks 491,Canada,North America
+492,GlobalRetail 492,South Korea,Asia
+493,DigitalWorld 493,South Korea,Asia
+494,TechCorp 494,Italy,Europe
+495,SmartStore 495,Argentina,South America
+496,DigitalWorld 496,Brazil,South America
+497,DigitalWorld 497,India,Asia
+498,EuroSystems 498,UK,Europe
+499,EnterpriseHub 499,India,Asia
+500,FutureTech 500,Brazil,South America
