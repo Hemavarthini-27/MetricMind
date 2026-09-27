@@ -36,3 +36,10 @@ logs/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Cube generated data
+cube/.cubestore/
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
