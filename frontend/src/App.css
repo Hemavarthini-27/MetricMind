@@ -594,3 +594,119 @@ nav {
     display: none;
   }
 }
+
+/* MetricMind Understood */
+/* MetricMind Understood */
+.semantic-card {
+  width: 100%;
+  
+  box-sizing: border-box;
+  margin: 0 0 24px;
+  padding: 24px 28px;
+  border: 1px solid #292c3a;
+  border-radius: 20px;
+  background: #151720;
+}
+
+.semantic-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.semantic-header h3 {
+  margin: 6px 0 0;
+  font-size: 19px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.semantic-status {
+  flex-shrink: 0;
+  padding: 7px 12px;
+  border: 1px solid #294d49;
+  border-radius: 999px;
+  color: #5eead4;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.semantic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+.semantic-grid > div {
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 16px 18px;
+  border: 1px solid #252938;
+  border-radius: 14px;
+  background: #191b26;
+}
+
+.semantic-label {
+  display: block;
+  margin-bottom: 10px;
+  color: #777b8f;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+
+.semantic-grid strong {
+  display: block;
+  margin-top: 0;
+  color: #f1f2f6;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.semantic-description {
+  margin: 18px 0 0;
+  color: #a5a8b8;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .semantic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 550px) {
+  .semantic-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .semantic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Align MetricMind Understood with dashboard */
+.semantic-card {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.semantic-grid {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}

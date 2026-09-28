@@ -1,5 +1,5 @@
 import { loadCubeData } from "./cubeApi";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   BarChart,
@@ -13,6 +13,7 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
+  Legend,
   ResponsiveContainer,
 } from "recharts";
 
@@ -79,9 +80,47 @@ function App() {
   );
 
   const [analysis, setAnalysis] = useState("revenue-region");
+  const semanticInfo = {
+  "revenue-region": {
+    metric: "Total Revenue",
+    dimension: "Region",
+    source: "FctSales",
+    description: "Revenue grouped by region",
+  },
 
+  "profit-region": {
+    metric: "Total Profit",
+    dimension: "Region",
+    source: "FctSales",
+    description: "Profit grouped by region",
+  },
+
+   "revenue-profit-region": {
+    metric: "Total Revenue + Total Profit",
+    dimension: "Region",
+    source: "FctSales",
+    description: "Revenue and profit grouped by region",
+  },
+
+  "monthly-revenue": {
+    metric: "Total Revenue",
+    dimension: "Order Date",
+    timeGrain: "Monthly",
+    source: "FctSales",
+    description: "Revenue analyzed month by month",
+  },
+
+  "total-revenue": {
+    metric: "Total Revenue",
+    dimension: "Overall",
+    source: "FctSales",
+    description: "Overall revenue across the dataset",
+  },
+};
+  const currentSemantic = semanticInfo[analysis];
   const [cubeData, setCubeData] = useState([]);
   const [profitCubeData, setProfitCubeData] = useState([]);
+  const [revenueProfitCubeData, setRevenueProfitCubeData] = useState([]);
   const [monthlyCubeData, setMonthlyCubeData] = useState([]);
   const [totalRevenueCubeData, setTotalRevenueCubeData] = useState([]);
   const [cubeLoading, setCubeLoading] = useState(false);
@@ -92,18 +131,25 @@ function App() {
   revenue: Number(row["FctSales.totalRevenue"]),
 }));
   
+  const realRevenueMix = cubeData.map((row) => ({
+  name: row["FctSales.region"],
+  value: Number(row["FctSales.totalRevenue"]),
+}));
+
   const realProfitByRegion = profitCubeData.map((row) => ({
   region: row["FctSales.region"],
   profit: Number(row["FctSales.totalProfit"]),
 }));
+ 
+const realRevenueProfitByRegion =
+  revenueProfitCubeData.map((row) => ({
+    region: row["FctSales.region"],
+    revenue: Number(row["FctSales.totalRevenue"]),
+    profit: Number(row["FctSales.totalProfit"]),
+  }));
 
 const realMonthlyRevenue = monthlyCubeData.map((row) => ({
-  month: new Date(row["FctSales.orderDate.month"]).toLocaleDateString(
-    "en-US",
-    {
-      month: "short",
-    }
-  ),
+  month: row["FctSales.orderDate.month"],
   revenue: Number(row["FctSales.totalRevenue"]),
 }));
 
@@ -152,6 +198,30 @@ const realTotalRevenue =
   }
 };
 
+const fetchRevenueProfitByRegion = async () => {
+  setCubeLoading(true);
+  setCubeError("");
+
+  try {
+    const data = await loadCubeData({
+      measures: [
+        "FctSales.totalRevenue",
+        "FctSales.totalProfit",
+      ],
+      dimensions: ["FctSales.region"],
+    });
+
+    console.log("Revenue + Profit by region:", data);
+
+    setRevenueProfitCubeData(data);
+  } catch (error) {
+    console.error("Cube revenue + profit error:", error);
+    setCubeError(error.message);
+  } finally {
+    setCubeLoading(false);
+  }
+};
+
  // ADD fetchMonthByRevenue HERE
 const fetchMonthlyRevenue = async () => {
   setCubeLoading(true);
@@ -167,7 +237,7 @@ const fetchMonthlyRevenue = async () => {
         },
       ],
     });
-
+    console.log("Monthly Cube data:", data);
     setMonthlyCubeData(data);
   } catch (error) {
     console.error("Cube monthly error:", error);
@@ -176,7 +246,10 @@ const fetchMonthlyRevenue = async () => {
     setCubeLoading(false);
   }
 };
-
+useEffect(() => {
+  fetchRevenueByRegion();
+  fetchMonthlyRevenue();
+}, []);
 // ADD TotalRevenue HERE
 
 const fetchTotalRevenue = async () => {
@@ -198,48 +271,68 @@ const fetchTotalRevenue = async () => {
 };
   /* ---------------- QUERY ENGINE ---------------- */
 
-  const runQuery = (question) => {
-    const q = question.toLowerCase().trim();
+ const runQuery = (question) => {
+  const q = question.toLowerCase().trim();
 
-    setActiveQuery(question);
+  console.log("QUERY RECEIVED:", q);
 
-   if (
-  q.includes("profit") &&
-  q.includes("region")
-) {
-  setAnalysis("profit-region");
-  fetchProfitByRegion();
-  return;
-}
+  setActiveQuery(question);
 
-    if (
-  q.includes("monthly") ||
-  q.includes("trend") ||
-  q.includes("month")
-) {
-  setAnalysis("monthly-revenue");
-  fetchMonthlyRevenue();
-  return;
-}
+  // Revenue + Profit by Region
+  if (
+    q.includes("revenue") &&
+    q.includes("profit") &&
+    q.includes("region")
+  ) {
+    console.log("COMBINED ANALYSIS SELECTED");
+    setAnalysis("revenue-profit-region");
+    fetchRevenueProfitByRegion();
+    return;
+  }
 
-   if (q.includes("revenue") && q.includes("region")) {
-  setAnalysis("revenue-region");
-  fetchRevenueByRegion();
-  return;
-}
+  // Profit by Region
+  if (
+    q.includes("profit") &&
+    q.includes("region")
+  ) {
+    setAnalysis("profit-region");
+    fetchProfitByRegion();
+    return;
+  }
 
-    if (
-  q.includes("total revenue") ||
-  q === "revenue"
-) {
-  setAnalysis("total-revenue");
-  fetchTotalRevenue();
-  return;
-}
+  // Monthly Revenue
+  if (
+    q.includes("monthly") ||
+    q.includes("trend") ||
+    q.includes("month")
+  ) {
+    setAnalysis("monthly-revenue");
+    fetchMonthlyRevenue();
+    return;
+  }
 
-    /* Default */
+  // Revenue by Region
+  if (
+    q.includes("revenue") &&
+    q.includes("region")
+  ) {
     setAnalysis("revenue-region");
-  };
+    fetchRevenueByRegion();
+    return;
+  }
+
+  // Total Revenue
+  if (
+    q.includes("total revenue") ||
+    q === "revenue"
+  ) {
+    setAnalysis("total-revenue");
+    fetchTotalRevenue();
+    return;
+  }
+
+  setAnalysis("revenue-region");
+};
 
   const handleSubmit = () => {
     if (!query.trim()) return;
@@ -259,45 +352,55 @@ const fetchTotalRevenue = async () => {
   let dimension = "Region";
   let filter = "None";
   let chartTitle = "Revenue by Region";
-  let insightTitle =
-    "South currently contributes the largest share of revenue.";
-  let insightText =
-    "MetricMind analyzed the regional revenue distribution using the governed Sales Analytics semantic model.";
+  let insightTitle = "Revenue distribution by region";
+let insightText =
+  "MetricMind analyzed the regional revenue distribution using the governed Sales Analytics semantic model.";
 
-  if (analysis === "profit-region") {
-    understoodTitle = "Profit by region";
-    metric = "Profit";
-    dimension = "Region";
-    chartTitle = "Profit by Region";
+if (analysis === "revenue-region") {
+  if (realRevenueByRegion.length > 0) {
+    const topRegion = [...realRevenueByRegion].sort(
+      (a, b) => b.revenue - a.revenue
+    )[0];
 
-    insightTitle =
-      "South currently contributes the highest profit.";
+    insightTitle = `${topRegion.region} leads revenue`;
     insightText =
-      "MetricMind analyzed regional profitability using the governed Sales Analytics semantic model.";
+      `${topRegion.region} has the highest recorded revenue in the current dataset, with MetricMind analyzing the result through the governed Sales Analytics semantic model.`;
   }
+}
 
-  if (analysis === "monthly-revenue") {
-    understoodTitle = "Monthly revenue trend";
-    metric = "Revenue";
-    dimension = "Month";
-    chartTitle = "Monthly Revenue";
-    insightTitle =
-      "Revenue shows an overall upward movement across the year.";
+if (analysis === "profit-region") {
+  if (realProfitByRegion.length > 0) {
+    const topRegion = [...realProfitByRegion].sort(
+      (a, b) => b.profit - a.profit
+    )[0];
+
+    insightTitle = `${topRegion.region} leads profit`;
     insightText =
-      "MetricMind analyzed revenue progression across the available monthly periods.";
+      `${topRegion.region} has the highest recorded profit in the current dataset, based on the governed Sales Analytics semantic model.`;
   }
+}
 
-  if (analysis === "total-revenue") {
-    understoodTitle = "Total revenue";
-    metric = "Revenue";
-    dimension = "None";
-    chartTitle = "Revenue Overview";
-    insightTitle =
-      "The current dataset contains ₹268.15 Cr in total revenue.";
+if (analysis === "monthly-revenue") {
+  if (realMonthlyRevenue.length > 0) {
+    const highestMonth = [...realMonthlyRevenue].sort(
+      (a, b) => b.revenue - a.revenue
+    )[0];
+
+    insightTitle = `${highestMonth.month} records the highest revenue`;
     insightText =
-      "MetricMind identified Revenue as the requested governed metric from the Sales Analytics semantic model.";
+      `${highestMonth.month} has the highest monthly revenue in the current dataset. MetricMind identified this trend through the governed semantic layer.`;
+  } else {
+    insightTitle = "Monthly revenue trend";
+    insightText =
+      "MetricMind analyzed revenue month by month using the governed Sales Analytics semantic model.";
   }
+}
 
+if (analysis === "total-revenue") {
+  insightTitle = "Total revenue analyzed";
+  insightText =
+    "MetricMind calculated the overall revenue directly through the governed Sales Analytics semantic model.";
+}
   return (
     <div className="app">
       {/* Sidebar */}
@@ -533,6 +636,98 @@ const fetchTotalRevenue = async () => {
               </div>
             </div>
           )}
+          
+          {/* METRICMIND UNDERSTOOD */}
+{currentSemantic && (
+  <div className="semantic-card">
+    <div className="semantic-header">
+      <div>
+        <span className="eyebrow">METRICMIND UNDERSTOOD</span>
+        <h3>Your question has been mapped to the semantic layer</h3>
+      </div>
+
+      <span className="semantic-status">
+        ● LIVE
+      </span>
+    </div>
+
+    <div className="semantic-grid">
+      <div>
+        <span className="semantic-label">METRIC</span>
+        <strong>{currentSemantic.metric}</strong>
+      </div>
+
+      <div>
+        <span className="semantic-label">DIMENSION</span>
+        <strong>{currentSemantic.dimension}</strong>
+      </div>
+
+      {currentSemantic.timeGrain && (
+        <div>
+          <span className="semantic-label">TIME GRAIN</span>
+          <strong>{currentSemantic.timeGrain}</strong>
+        </div>
+      )}
+
+      <div>
+        <span className="semantic-label">SOURCE</span>
+        <strong>{currentSemantic.source}</strong>
+      </div>
+    </div>
+
+    <p className="semantic-description">
+      {currentSemantic.description}
+    </p>
+  </div>
+)}
+
+{/* REVENUE + PROFIT BY REGION */}
+{analysis === "revenue-profit-region" && (
+  <div className="chart-card large">
+    <div className="chart-header">
+      <div>
+        <span className="eyebrow">
+          REGIONAL PERFORMANCE
+        </span>
+        <h3>Revenue & Profit by Region</h3>
+      </div>
+    </div>
+
+    <div className="chart">
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={realRevenueProfitByRegion}>
+          <CartesianGrid
+            strokeDasharray="3 3"
+            vertical={false}
+          />
+
+          <XAxis dataKey="region" />
+
+          <YAxis />
+
+          <Tooltip />
+
+          <Legend />
+
+          <Bar
+            dataKey="revenue"
+            name="Revenue"
+            radius={[8, 8, 0, 0]}
+            fill="#8b7cff"
+          />
+
+          <Bar
+            dataKey="profit"
+            name="Profit"
+            radius={[8, 8, 0, 0]}
+            fill="#4ade80"
+          />
+        </BarChart>
+      </ResponsiveContainer>
+    </div>
+  </div>
+)}
+
 
           {/* REVENUE BY REGION */}
           {analysis === "revenue-region" && (
@@ -557,8 +752,8 @@ const fetchTotalRevenue = async () => {
                     width="100%"
                     height="100%"
                   >
-                    <BarChart
-  data={realRevenueByRegion.length > 0 ? realRevenueByRegion : revenueByRegion}
+ <BarChart
+  data={realRevenueByRegion}
 >
                       <CartesianGrid
                         strokeDasharray="3 3"
@@ -615,14 +810,14 @@ const fetchTotalRevenue = async () => {
                   >
                     <PieChart>
                       <Pie
-                        data={revenueMix}
-                        dataKey="value"
-                        nameKey="name"
-                        innerRadius={65}
-                        outerRadius={95}
-                        paddingAngle={4}
-                      >
-                        {revenueMix.map((_, index) => (
+  data={realRevenueMix}
+  dataKey="value"
+  nameKey="name"
+  innerRadius={65}
+  outerRadius={95}
+  paddingAngle={4}
+>
+                        {realRevenueMix.map((_, index) => (
                           <Cell
                             key={index}
                             fill={
@@ -648,27 +843,28 @@ const fetchTotalRevenue = async () => {
                   </ResponsiveContainer>
                 </div>
 
-                <div className="legend">
-                  {revenueMix.map((item, index) => (
-                    <div key={item.name}>
-                      <span
-                        className="legend-dot"
-                        style={{
-                          background:
-                            [
-                              "#8b7cff",
-                              "#5eead4",
-                              "#f59e0b",
-                              "#60a5fa",
-                            ][index],
-                        }}
-                      />
+               <div className="legend">
+  {realRevenueMix.map(
+    (item, index) => (
+      <div key={item.name}>
+        <span
+          className="legend-dot"
+          style={{
+            background: [
+              "#8b7cff",
+              "#5eead4",
+              "#f59e0b",
+              "#60a5fa",
+            ][index],
+          }}
+        />
 
-                      {item.name}
-                    </div>
-                  ))}
-                </div>
-              </div>
+                {item.name}
+      </div>
+    )
+  )}
+</div>
+</div>
 
               <div className="chart-card trend-card">
                 <div className="chart-header">
@@ -691,11 +887,7 @@ const fetchTotalRevenue = async () => {
                     height="100%"
                   >
                     <LineChart
-  data={
-    realMonthlyRevenue.length > 0
-      ? realMonthlyRevenue
-      : revenueTrend
-  }
+ data={realMonthlyRevenue}
 >
                       <CartesianGrid
                         strokeDasharray="3 3"

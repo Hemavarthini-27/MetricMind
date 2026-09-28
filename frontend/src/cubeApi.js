@@ -7,11 +7,17 @@ export async function loadCubeData(query) {
     )}`
   );
 
-  if (!response.ok) {
-    throw new Error(`Cube API error: ${response.status}`);
-  }
-
   const result = await response.json();
+
+  if (!response.ok) {
+    console.error("Cube API response:", result);
+
+    throw new Error(
+      result.error ||
+      result.message ||
+      `Cube API error: ${response.status}`
+    );
+  }
 
   return result.data;
 }
