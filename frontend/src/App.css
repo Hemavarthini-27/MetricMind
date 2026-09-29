@@ -710,3 +710,7 @@ nav {
   max-width: 100%;
   box-sizing: border-box;
 }
+
+.combined-chart-card {
+  grid-column: 1 / -1;
+}

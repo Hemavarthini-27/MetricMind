@@ -386,15 +386,29 @@ if (analysis === "monthly-revenue") {
       (a, b) => b.revenue - a.revenue
     )[0];
 
-    insightTitle = `${highestMonth.month} records the highest revenue`;
+    const formattedMonth = new Date(
+      highestMonth.month
+    ).toLocaleDateString("en-US", {
+      month: "long",
+      year: "numeric",
+    });
+
+    insightTitle = `${formattedMonth} records the highest revenue`;
     insightText =
-      `${highestMonth.month} has the highest monthly revenue in the current dataset. MetricMind identified this trend through the governed semantic layer.`;
+      `${formattedMonth} has the highest monthly revenue in the current dataset. MetricMind identified this trend through the governed semantic layer.`;
   } else {
     insightTitle = "Monthly revenue trend";
     insightText =
       "MetricMind analyzed revenue month by month using the governed Sales Analytics semantic model.";
   }
 }
+
+if (analysis === "revenue-profit-region") {
+  insightTitle = "Revenue and profit by region";
+  insightText =
+    "MetricMind analyzed both revenue and profit across regions using the governed Sales Analytics semantic model.";
+}
+
 
 if (analysis === "total-revenue") {
   insightTitle = "Total revenue analyzed";
@@ -519,43 +533,6 @@ if (analysis === "total-revenue") {
             {activeQuery}
           </span>
         </div>
-
-        {/* Semantic Understanding */}
-        <section className="understood">
-          <div className="understood-header">
-            <div>
-              <span className="eyebrow">
-                METRICMIND UNDERSTOOD
-              </span>
-
-              <h3>{understoodTitle}</h3>
-            </div>
-
-            <span className="live-badge">LIVE</span>
-          </div>
-
-          <div className="semantic-items">
-            <div>
-              <span>Metric</span>
-              <strong>{metric}</strong>
-            </div>
-
-            <div>
-              <span>Dimension</span>
-              <strong>{dimension}</strong>
-            </div>
-
-            <div>
-              <span>Filter</span>
-              <strong>{filter}</strong>
-            </div>
-
-            <div>
-              <span>Semantic Model</span>
-              <strong>Sales Analytics</strong>
-            </div>
-          </div>
-        </section>
 
         {/* KPI Cards */}
         <section className="kpi-grid">
@@ -683,7 +660,7 @@ if (analysis === "total-revenue") {
 
 {/* REVENUE + PROFIT BY REGION */}
 {analysis === "revenue-profit-region" && (
-  <div className="chart-card large">
+  <div className="chart-card large combined-chart-card">
     <div className="chart-header">
       <div>
         <span className="eyebrow">
@@ -1027,22 +1004,32 @@ if (analysis === "total-revenue") {
                   </span>
 
                   <strong
-                    style={{
-                      fontSize: "42px",
-                      marginTop: "10px",
-                    }}
-                  >
-                    South
-                  </strong>
+  style={{
+    fontSize: "42px",
+    marginTop: "10px",
+  }}
+>
+  {realProfitByRegion.length > 0
+    ? [...realProfitByRegion].sort(
+        (a, b) => b.profit - a.profit
+      )[0].region
+    : "—"}
+</strong>
 
-                  <span
-                    style={{
-                      color: "#5eead4",
-                      marginTop: "8px",
-                    }}
-                  >
-                    ₹312 Cr
-                  </span>
+<span
+  style={{
+    color: "#5eead4",
+    marginTop: "8px",
+  }}
+>
+  {realProfitByRegion.length > 0
+    ? `₹${(
+        [...realProfitByRegion].sort(
+          (a, b) => b.profit - a.profit
+        )[0].profit / 10000000
+      ).toFixed(2)} Cr`
+    : "—"}
+</span>
                 </div>
               </div>
             </>
@@ -1084,11 +1071,19 @@ if (analysis === "total-revenue") {
                     />
 
                     <XAxis
-                      dataKey="month"
-                      stroke="#777b8f"
-                      axisLine={false}
-                      tickLine={false}
-                    />
+  dataKey="month"
+  stroke="#777b8f"
+  axisLine={false}
+  tickLine={false}
+  tickFormatter={(value) => {
+    const date = new Date(value);
+
+    return date.toLocaleDateString("en-US", {
+      month: "short",
+      year: "numeric",
+    });
+  }}
+/>
 
                     <YAxis
                       stroke="#777b8f"
